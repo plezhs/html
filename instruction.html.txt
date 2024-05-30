@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Documentation</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        #buttonSection {
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            position: fixed;
+            top: 50%;
+            left: 0;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+        .toggle-button {
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-button:hover {
+            background-color: #0056b3;
+        }
+        #sidebar {
+            width: 250px;
+            border-right: 1px solid #ccc;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #fff;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        #sidebar.open {
+            transform: translateX(0);
+        }
+        #buttonSection.open {
+            transform: translate(245px, -50%);
+        }
+        #buttonSection.closed {
+            transform: translate(-25px, -50%);
+        }
+        #content {
+            flex-grow: 1;
+            padding: 20px;
+            margin-left: 250px; /* Fixed size reduced by the size of the list section */
+            transition: margin-left 0.3s ease;
+        }
+        #sidebar.open + #content {
+            margin-left: 250px;
+        }
+        .function-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .function-list li {
+            cursor: pointer;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            transition: background-color 0.3s ease;
+        }
+        .function-list li:hover {
+            background-color: #e0e0e0;
+        }
+        h1 {
+            color: #333;
+            text-align: left;
+            max-width: 66%;
+            margin: 0 auto;
+        }
+        h2 {
+            color: #007bff;
+        }
+        p {
+            color: #555;
+        }
+        #functionContent {
+            max-width: 66%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="buttonSection" class="closed">
+        <button class="toggle-button" onclick="toggleList()">></button>
+    </div>
+    <div id="sidebar">
+        <ul class="function-list" id="functionList">
+            <li onclick="showFunction('valshop')">!valshop</li>
+            <li onclick="showFunction('nm')">!nm</li>
+            <li onclick="showFunction('function3')">Function 3</li>
+            <li onclick="showFunction('function4')">Function 4</li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1>Function Documentation</h1>
+        <div id="functionContent">
+            <p>Select a function from the list to see its documentation.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleList() {
+            const list = document.getElementById('sidebar');
+            const buttonSection = document.getElementById('buttonSection');
+            const button = document.querySelector('.toggle-button');
+            list.classList.toggle('open');
+            buttonSection.classList.toggle('open');
+            buttonSection.classList.toggle('closed');
+            button.textContent = list.classList.contains('open') ? '<' : '>';
+        }
+
+        function showFunction(functionName) {
+            const content = document.getElementById('functionContent');
+            let htmlContent = '';
+
+            switch (functionName) {
+                case 'valshop':
+                    htmlContent = '<h2>!valshop</h2><p>This is the documentation for <span style="color:#007bff">valshop</span> command.</p>';
+                    break;
+                case 'nm':
+                    htmlContent = '<h2>!nm</h2><p>This is the documentation for <span style="color:#007bff">nm</span> command.</p>';
+                    break;
+                case 'function3':
+                    htmlContent = '<h2>Function 3</h2><p>This is the documentation for <span style="color:#007bff">Function 3</span>.</p>';
+                    break;
+                case 'function4':
+                    htmlContent = '<h2>Fucntion 4</h2><p>This is the documentation for Function 4.</p>';
+                    break;
+                default:
+                    htmlContent = '<p>Select a function from the list to see its documentation.</p>';
+            }
+
+            content.innerHTML = htmlContent;
+        }
+    </script>
+</body>
+</html>
