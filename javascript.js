@@ -16,16 +16,16 @@ function showFunction(functionName, wth) {
 
     switch (functionName) {
         case 'valshop':
-            htmlContent = `<object id="cmd" width="${window.innerWidth-250}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
+            htmlContent = `<object id="cmd" width="${window.innerWidth-500}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
             break;
         case 'nm':
-            htmlContent = `<object id="cmd" width="${window.innerWidth-250}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
+            htmlContent = `<object id="cmd" width="${window.innerWidth-500}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
             break;
         case 'function3':
-            htmlContent = `<object id="cmd" width="${window.innerWidth-250}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
+            htmlContent = `<object id="cmd" width="${window.innerWidth-500}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
             break;
         case 'function4':
-            htmlContent = `<object id="cmd" width="${window.innerWidth-250}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
+            htmlContent = `<object id="cmd" width="${window.innerWidth-500}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
             break;
         default:
             htmlContent = '<p>Select a function from the list to see its documentation.</p>';
