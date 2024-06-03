@@ -10,26 +10,31 @@ function toggleList() {
 
 
 
-function showFunction(functionName, wth) {
+function showFunction(functionName) {
     const content = document.getElementById('functionContent');
     let htmlContent = '';
-
-    switch (functionName) {
-        case 'valshop':
-            htmlContent = `<object id="cmd" width="${window.innerWidth-500}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
-            break;
-        case 'nm':
-            htmlContent = `<object id="cmd" width="${window.innerWidth-500}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
-            break;
-        case 'function3':
-            htmlContent = `<object id="cmd" width="${window.innerWidth-500}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
-            break;
-        case 'function4':
-            htmlContent = `<object id="cmd" width="${window.innerWidth-500}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
-            break;
-        default:
-            htmlContent = '<p>Select a function from the list to see its documentation.</p>';
+    cmds = ['valshop', 'nm', 'set', 'info']
+    if (cmds.includes(functionName)) {
+        htmlContent = `<object id="cmd" width="${window.innerWidth-500}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
+    }else{
+        htmlContent = '<p>Select a function from the list to see its documentation.</p>';
     }
+    // switch (functionName) {
+    //     case 'valshop':
+    //         htmlContent = `<object id="cmd" width="${window.innerWidth-500}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
+    //         break;
+    //     case 'nm':
+    //         htmlContent = `<object id="cmd" width="${window.innerWidth-500}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
+    //         break;
+    //     case 'set':
+    //         htmlContent = `<object id="cmd" width="${window.innerWidth-500}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
+    //         break;
+    //     case 'info':
+    //         htmlContent = `<object id="cmd" width="${window.innerWidth-500}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
+    //         break;
+    //     default:
+    //         htmlContent = '<p>Select a function from the list to see its documentation.</p>';
+    // }
 
     content.innerHTML = htmlContent;
 }
