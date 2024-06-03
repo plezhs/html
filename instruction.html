@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -122,17 +122,6 @@
             <p>Select a function from the list to see its documentation.</p>
         </div>
     </div>
-
-    <script>
-        async function fetchHtmlAsText(url) {
-            return await (await fetch(url)).text();
-        }
-
-        async function importPage(target) {
-            return await fetchHtmlAsText(target + '.html').text();
-        }
-    </script>
-
     <script src="javascript.js"></script>
 </body>
 </html>
