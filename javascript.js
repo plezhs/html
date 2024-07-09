@@ -13,7 +13,7 @@ function toggleList() {
 function showFunction(functionName) {
     const content = document.getElementById('functionContent');
     let htmlContent = '';
-    cmds = ['valshop', 'nm', 'set', 'info']
+    cmds = ['valshop', 'nm', 'set', 'info','as']
     if (cmds.includes(functionName)) {
         htmlContent = `<object id="cmd" height="${window.innerHeight}" width="${window.innerWidth-500}" type="text/html" data="./cmddm/${functionName}.html"></object>`;
     }else{
