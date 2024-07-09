@@ -8,8 +8,6 @@ function toggleList() {
     button.textContent = list.classList.contains('open') ? '<' : '>';
 }
 
-
-
 function showFunction(functionName) {
     const content = document.getElementById('functionContent');
     let htmlContent = '';
